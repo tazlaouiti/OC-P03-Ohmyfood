@@ -1,0 +1,678 @@
+@charset "UTF-8";
+@keyframes keyframes--scale {
+  from {
+    transform: scale(0);
+  }
+  99% {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes keyframes--rotate {
+  0% {
+    transform: scale(2.4) rotate(0deg);
+  }
+  16.6% {
+    transform: scale(2.2) rotate(60deg);
+  }
+  33.2% {
+    transform: scale(2) rotate(120deg);
+  }
+  49.8% {
+    transform: scale(1.8) rotate(180deg);
+  }
+  66.4% {
+    transform: scale(1.6) rotate(240deg);
+  }
+  83.0% {
+    transform: scale(1.4) rotate(300deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(360deg) translateX(-50%);
+  }
+}
+.menu-epd--animation {
+  animation: 1s linear 0s keyframes01;
+}
+@keyframes keyframes01 {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(40px);
+    opacity: 0.2;
+  }
+  40% {
+    transform: translateY(25px);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translateY(15px);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translateY(5px);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menu-epd__underline--animation {
+  transform-origin: 0%;
+  animation: 1000ms cubic-bezier(0.32, 0, 0.07, 1) 0s keyframes02;
+}
+@keyframes keyframes02 {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/*******************************************************/
+/* L’article How to – Cards de W3C avec quelques snippets de code pour réaliser une card. 
+add shadows to create the "card" effect - https://www.w3schools.com/howto/howto_css_cards.asp */
+/*******************************************************/
+/* Directory utils/ vous rangez vos variables, fonctions, mixins et les %placeholders pour les extensions (si vous en utilisez). */
+/* Charte graphique Couleurs : Primaire #9356DC Secondaire #FF79DA Tertiaire #99E2D0*/
+/* Color darkpurple */
+/* Color lightpurple */
+/* Color lightgreen */
+/* Sur la maquette Paint donne rgb(234,234,234) hsl(160deg 0 220) Teinte Saturation Luninosite-Clarte) */
+/* rgb(53,53,53); hsl(160 0 50) */
+/* rgb(247,247,247) hsl(160 0 232) */
+/* Bouton legerement violet au survol : rgb(245,237,255) hsl(178 240 232) */
+/*https://htmlcolorcodes.com/
+	Black 	#000000 	rgb(0, 0, 0)
+        White 	#FFFFFF 	rgb(255, 255, 255)
+ 	Green 	#008000 	rgb(0, 128, 0)
+ 	Gray 	#808080 	rgb(128, 128, 128)
+	Red 	#FF0000 	rgb(255, 0, 0)
+ 	Blue 	#0000FF 	rgb(0, 0, 255)
+ 	Purple 	#800080 	rgb(128, 0, 128)
+*/
+/* Utilisation de parametre d'agrandissement dans les mixins d'animations */
+/* Directory base/ contient les fichiers qui définissent les fondations de votre site,
+par exemple la police de caractères et les normes que vous voulez appliquer sur tout votre site, telles que le box-sizing */
+/* -------------------------------------------------- */
+/* Version mobile first */
+/* Reset */
+* {
+  /* Border-box tells the browser to account for any border and padding in the values you specify for an element's width and height.
+  If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width.*/
+  box-sizing: border-box;
+  /* Il faut savoir que par défaut, la balise “body” comporte des marges. After a zero length, the unit identifier is optional. */
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+/* Page index.html */
+body {
+  /* Spécifications techniques, Largeur max : Pour éviter d’étirer la page web sur la largeur de façon excessive, il va falloir déterminer une largeur maximum de 1 400 px. */
+  max-width: 1400px;
+  margin: auto;
+  background: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Page title */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 50px;
+  color: black;
+}
+
+/* Section title */
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: black;
+}
+
+/* restaurant title */
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: black;
+  margin-top: 20px;
+}
+
+/* cards title */
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+}
+
+/* Footer title */
+h5 {
+  /* CSS rules to specify families (https://fonts.google.com/specimen/Shrikhand) */
+  font-family: "Shrikhand", cursive;
+  font-size: 1.7rem;
+  color: white;
+  margin-top: 20px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.fonctionnement {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+}
+.fonctionnement__title {
+  display: flex;
+  width: 339px;
+}
+.fonctionnement__choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 350px;
+  padding: 25px;
+}
+
+.choice {
+  background: rgb(247, 247, 247);
+  /* Pour superposer du texte sur une image, mettre le container en position: relative et le texte en position: absolute. */
+  position: relative;
+  width: 100%;
+  height: 75px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 10px 10px rgb(190, 190, 190);
+  transition-duration: 0.3s;
+  /* Animation d'agrandissement de l'element choice number uniquement */
+}
+.choice:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background: rgb(245, 237, 255);
+}
+.choice:hover .choice__number {
+  /* Animation transition : augmentation du volume small: 1.10; medium: 1.25; large: 1.50; double: 2; */
+  transform: scale(2);
+}
+.choice__number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  /* Decalage à gauche on button border */
+  left: -3%;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  color: white;
+  background-color: #9356DC;
+  font-size: 1rem;
+  font-weight: 700;
+  transform: scale(1);
+  /* La propriété  transition  vous permet de combiner toutes les propriétés en une.
+  Nom de la propriété : "transition-property: transform;" puis la durée : "transition-duration: 400ms;" */
+  transition: transform 400ms;
+}
+.choice i {
+  display: inline;
+  position: absolute;
+  top: 40%;
+  left: 12%;
+  width: 80px;
+}
+.choice__text {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  /* Attention, avec la position en absolute, et width à 100%, l'element text prend le width parent et avec son decalage, il etend le viewport = Ascenseur horizontal */
+  width: auto;
+  font-weight: 700;
+}
+
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(247, 247, 247);
+  padding: 20px;
+}
+
+/* -------------------------------------------------- */
+/* Media Queries */
+/* Spécifications techniques, Breakpoints : Nous avons convenu avec le designer UI d’utiliser 992 px et 768 px :
+● >=992 px pour les écrans d’ordinateurs ;
+● >=768 px pour les tablettes ;
+● et tout ce qui est en dessous de 768 pour les téléphones portables. */
+/* Media queries tablette */
+/* -------------------------------------------------- */
+/* Media queries desktop */
+.button {
+  width: auto;
+  height: 80px;
+  border: none;
+  border-radius: 100px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0px 10px 10px rgb(190, 190, 190);
+  transition-duration: 0.3s;
+  transform: scale(1);
+  /* La propriété  transition  vous permet de combiner toutes les propriétés en une.
+  Nom de la propriété : "transition-property: transform;" puis la durée : "transition-duration: 400ms;" */
+  transition: transform 400ms;
+}
+.button:hover {
+  /* Au survol, la couleur de fond des boutons principaux devra légèrement s’éclaircir.
+     L’ombre portée devra également être plus visible. */
+  background: linear-gradient(#ff93e1, #a16be0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  /* Animation transition : augmentation du volume small: 1.10; medium: 1.25; large: 1.50; double: 2; */
+  transform: scale(1.1);
+}
+.button--font01 {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: white;
+}
+.button--large {
+  padding: 5px 75px;
+}
+
+/* Directory components/ est utilisé pour ranger les blocs BEM qui sont plus indépendants, comme les boutons. */
+.cards {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 20px;
+  box-shadow: 0px 10px 10px rgb(190, 190, 190);
+  transition-duration: 0.3s;
+}
+.cards:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.cards__box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 15px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: white;
+}
+.cards__box p {
+  bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.cards__image {
+  position: relative;
+  height: 350px;
+  border-radius: 20px 20px 0px 0px;
+  overflow: hidden;
+}
+.cards img {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  object-fit: cover;
+}
+.cards i {
+  font-size: 2.5rem;
+}
+.cards a {
+  text-decoration: none;
+  color: black;
+}
+.cards__new {
+  position: absolute;
+  width: 110px;
+  height: 30px;
+  /* Force la position en front-end */
+  z-index: 1;
+  top: 15px;
+  right: 15px;
+  border-radius: 5px;
+  background-color: #99E2D0;
+  padding: 3px;
+}
+.cards__new--none {
+  width: 0px;
+  height: 0px;
+  opacity: 0%;
+}
+.cards__new p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: green;
+}
+
+.icon__favoris {
+  position: absolute;
+  right: 30px;
+  overflow: hidden;
+  opacity: 100%;
+}
+.icon__favoris:hover {
+  opacity: 0%;
+}
+.icon__favoris--hover {
+  position: absolute;
+  right: 30px;
+  overflow: hidden;
+  opacity: 0%;
+}
+.icon__favoris--hover:hover {
+  opacity: 100%;
+}
+.icon__color--primary {
+  color: #9356DC;
+}
+.icon__color--secondary {
+  color: #FF79DA;
+}
+.icon__color--tertiary {
+  color: #99E2D0;
+}
+.icon__color--black {
+  color: black;
+}
+.icon__color--white {
+  color: white;
+}
+
+footer {
+  padding: 25px;
+  background-color: rgb(53, 53, 53);
+}
+footer__nav {
+  margin-top: 20px;
+}
+footer a {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+footer i {
+  width: 24px;
+  margin-right: 25px;
+}
+footer ul {
+  list-style: none;
+}
+footer li {
+  padding-bottom: 10px;
+}
+
+.footer__nav {
+  margin-top: 20px;
+}
+
+/* Directory layouts/ est le dossier où vous mettez vos blocs BEM qui contiennent ce qui est réutilisable,
+par exemple un header pour les mises en page de grande taille ou un footer. */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  background: white;
+}
+.header__loader {
+  display: flex;
+  width: 175px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: scale(0);
+  animation: keyframes--rotate 5s linear 0s;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  width: 175px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.header__logo--animation {
+  animation: keyframes--scale 5s linear 0s;
+}
+.header__localisation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background: rgb(234, 234, 234);
+  box-shadow: 5px 0px 0px rgb(190, 190, 190);
+}
+.header__localisation .localisation__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__localisation .localisation__text p {
+  font-weight: 700;
+  margin: 20px 10px;
+}
+.header__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding: 30px 0;
+  background-color: rgb(247, 247, 247);
+}
+.header__box p {
+  margin: 0 50px;
+}
+
+.header__arrow_for_return {
+  position: absolute;
+  font-size: 2.3rem;
+  left: 5%;
+  color: black;
+}
+
+.restaurant__box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  /* Debordement sur image */
+  top: -50px;
+  margin-bottom: -65px;
+  border-radius: 45px 45px 0px 0px;
+  padding-top: 20px;
+  background-color: rgb(247, 247, 247);
+}
+.restaurant__photo {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+.restaurant__photo img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.menu__box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 15px;
+}
+.menu__title {
+  padding-left: 7px;
+}
+.menu__title h2 {
+  font-family: "Shrikhand", cursive;
+  color: black;
+}
+.menu__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+}
+
+/* EPD : Entrée Plats Dessert */
+.menu-epd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.menu-epd h3 {
+  /* L'element titre se retrouve au centre, width à 95% etire l'element sur une majeure partie de la largeur => Pour annuler le "align-items: center;" */
+  width: 90%;
+  margin-bottom: 10px;
+}
+.menu-epd__underline {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  width: 80px;
+  height: 6px;
+  margin: 0 0 10px 40px;
+  background-color: #99E2D0;
+}
+.menu-epd__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 10px 10px rgb(190, 190, 190);
+  transition-duration: 0.3s;
+}
+.menu-epd__box:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.menu-epd__box:hover .menu-epd__txt {
+  width: 60%;
+  transition: 1s;
+}
+.menu-epd__box:hover .menu-epd__prix {
+  width: 20%;
+  transition: 1s;
+}
+.menu-epd__box:hover .menu-epd__selection {
+  width: 20%;
+  height: auto;
+  opacity: 100%;
+  transition: ease-in 1s;
+}
+.menu-epd__box:hover .menu-epd__selection i {
+  transform: scale(1.5) rotate(360deg);
+  transition: transform ease-in 1.5s;
+}
+.menu-epd__txt {
+  /* text-overflow:ellipsis; only works when the following are true:
+     The element's width must be constrained in px (pixels). Width in % (percentage) won't work.
+     The element must have overflow:hidden and white-space:nowrap set. */
+  width: 80%;
+  margin-bottom: 10px;
+  transition-duration: 1s;
+}
+.menu-epd__txt h4 {
+  margin: 6px 20px;
+  line-height: 26px;
+  /* Pas de retour à la ligne */
+  white-space: nowrap;
+  /* texte rogné si pas de place */
+  overflow: hidden;
+  /* ellipsis : Affiche une ellipse ('…') pour représenter le texte rogné */
+  text-overflow: ellipsis;
+}
+.menu-epd__txt p {
+  margin: 6px 20px;
+  font-weight: 400;
+  line-height: 22px;
+  /* Pas de retour à la ligne */
+  white-space: nowrap;
+  /* texte rogné si pas de place */
+  overflow: hidden;
+  /* ellipsis : Affiche une ellipse ('…') pour représenter le texte rogné */
+  text-overflow: ellipsis;
+}
+.menu-epd__price {
+  width: 20%;
+  padding-top: 40px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+  transition-duration: 1s;
+}
+.menu-epd__selection {
+  display: flex;
+  width: 0%;
+  height: auto;
+  border-radius: 0 20px 20px 0;
+  background-color: #99E2D0;
+  opacity: 0%;
+  transition-duration: 1s;
+  position: relative;
+}
+.menu-epd__selection i {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+/* AUtres examples d'import du fichier du cours main.scss, non utilises dans le projet OhMyFood :
+@import "./utils/functions";
+@import "./utils/extensions";
+@import "./base/typography";
+@import "./pages/work";
+@import "./pages/about";
+@import "./pages/project"; */
+
+/*# sourceMappingURL=style.css.map */
