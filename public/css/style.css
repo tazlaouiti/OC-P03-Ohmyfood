@@ -78,10 +78,7 @@
 }
 
 /*******************************************************/
-/* L’article How to – Cards de W3C avec quelques snippets de code pour réaliser une card. 
-add shadows to create the "card" effect - https://www.w3schools.com/howto/howto_css_cards.asp */
 /*******************************************************/
-/* Directory utils/ vous rangez vos variables, fonctions, mixins et les %placeholders pour les extensions (si vous en utilisez). */
 /* Charte graphique Couleurs : Primaire #9356DC Secondaire #FF79DA Tertiaire #99E2D0*/
 /* Color darkpurple */
 /* Color lightpurple */
@@ -90,26 +87,11 @@ add shadows to create the "card" effect - https://www.w3schools.com/howto/howto_
 /* rgb(53,53,53); hsl(160 0 50) */
 /* rgb(247,247,247) hsl(160 0 232) */
 /* Bouton legerement violet au survol : rgb(245,237,255) hsl(178 240 232) */
-/*https://htmlcolorcodes.com/
-	Black 	#000000 	rgb(0, 0, 0)
-        White 	#FFFFFF 	rgb(255, 255, 255)
- 	Green 	#008000 	rgb(0, 128, 0)
- 	Gray 	#808080 	rgb(128, 128, 128)
-	Red 	#FF0000 	rgb(255, 0, 0)
- 	Blue 	#0000FF 	rgb(0, 0, 255)
- 	Purple 	#800080 	rgb(128, 0, 128)
-*/
 /* Utilisation de parametre d'agrandissement dans les mixins d'animations */
-/* Directory base/ contient les fichiers qui définissent les fondations de votre site,
-par exemple la police de caractères et les normes que vous voulez appliquer sur tout votre site, telles que le box-sizing */
 /* -------------------------------------------------- */
 /* Version mobile first */
 /* Reset */
 * {
-  /* Border-box tells the browser to account for any border and padding in the values you specify for an element's width and height.
-  If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width.*/
-  box-sizing: border-box;
-  /* Il faut savoir que par défaut, la balise “body” comporte des marges. After a zero length, the unit identifier is optional. */
   margin: 0;
   padding: 0;
   color: black;
@@ -198,7 +180,6 @@ p {
 
 .choice {
   background: rgb(247, 247, 247);
-  /* Pour superposer du texte sur une image, mettre le container en position: relative et le texte en position: absolute. */
   position: relative;
   width: 100%;
   height: 75px;
@@ -213,8 +194,10 @@ p {
   transition: 0.3s;
   background: rgb(245, 237, 255);
 }
+.choice:hover i {
+  color: #9356DC;
+}
 .choice:hover .choice__number {
-  /* Animation transition : augmentation du volume small: 1.10; medium: 1.25; large: 1.50; double: 2; */
   transform: scale(2);
 }
 .choice__number {
@@ -233,8 +216,6 @@ p {
   font-size: 1rem;
   font-weight: 700;
   transform: scale(1);
-  /* La propriété  transition  vous permet de combiner toutes les propriétés en une.
-  Nom de la propriété : "transition-property: transform;" puis la durée : "transition-duration: 400ms;" */
   transition: transform 400ms;
 }
 .choice i {
@@ -248,7 +229,6 @@ p {
   position: absolute;
   top: 40%;
   left: 30%;
-  /* Attention, avec la position en absolute, et width à 100%, l'element text prend le width parent et avec son decalage, il etend le viewport = Ascenseur horizontal */
   width: auto;
   font-weight: 700;
 }
@@ -272,29 +252,26 @@ p {
 /* Media queries desktop */
 .button {
   width: auto;
-  height: 80px;
+  height: 60px;
   border: none;
   border-radius: 100px;
   background: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 20px;
   box-shadow: 0px 10px 10px rgb(190, 190, 190);
   transition-duration: 0.3s;
   transform: scale(1);
-  /* La propriété  transition  vous permet de combiner toutes les propriétés en une.
-  Nom de la propriété : "transition-property: transform;" puis la durée : "transition-duration: 400ms;" */
   transition: transform 400ms;
 }
 .button:hover {
-  /* Au survol, la couleur de fond des boutons principaux devra légèrement s’éclaircir.
-     L’ombre portée devra également être plus visible. */
   background: linear-gradient(#ff93e1, #a16be0);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  /* Animation transition : augmentation du volume small: 1.10; medium: 1.25; large: 1.50; double: 2; */
   transform: scale(1.1);
 }
 .button--font01 {
+  text-align: center;
+  line-height: 60px;
   font-weight: 700;
   font-size: 1.7rem;
   color: white;
@@ -303,7 +280,6 @@ p {
   padding: 5px 75px;
 }
 
-/* Directory components/ est utilisé pour ranger les blocs BEM qui sont plus indépendants, comme les boutons. */
 .cards {
   display: flex;
   flex-direction: column;
@@ -353,15 +329,13 @@ p {
 }
 .cards__new {
   position: absolute;
-  width: 110px;
-  height: 30px;
-  /* Force la position en front-end */
+  width: 150px;
+  height: 50px;
   z-index: 1;
   top: 15px;
   right: 15px;
   border-radius: 5px;
   background-color: #99E2D0;
-  padding: 3px;
 }
 .cards__new--none {
   width: 0px;
@@ -369,8 +343,10 @@ p {
   opacity: 0%;
 }
 .cards__new p {
-  margin: 0;
-  font-size: 1.5rem;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1;
   color: green;
@@ -392,6 +368,11 @@ p {
   opacity: 0%;
 }
 .icon__favoris--hover:hover {
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition-duration: 1s;
   opacity: 100%;
 }
 .icon__color--primary {
@@ -437,8 +418,6 @@ footer li {
   margin-top: 20px;
 }
 
-/* Directory layouts/ est le dossier où vous mettez vos blocs BEM qui contiennent ce qui est réutilisable,
-par exemple un header pour les mises en page de grande taille ou un footer. */
 .header {
   display: flex;
   flex-direction: column;
@@ -499,6 +478,9 @@ par exemple un header pour les mises en page de grande taille ou un footer. */
 .header__box p {
   margin: 0 50px;
 }
+.header__button a {
+  text-decoration: none;
+}
 
 .header__arrow_for_return {
   position: absolute;
@@ -558,6 +540,9 @@ par exemple un header pour les mises en page de grande taille ou un footer. */
   height: 150px;
   padding: 15px;
 }
+.menu__button a {
+  text-decoration: none;
+}
 
 /* EPD : Entrée Plats Dessert */
 .menu-epd {
@@ -568,7 +553,6 @@ par exemple un header pour les mises en page de grande taille ou un footer. */
   width: 100%;
 }
 .menu-epd h3 {
-  /* L'element titre se retrouve au centre, width à 95% etire l'element sur une majeure partie de la largeur => Pour annuler le "align-items: center;" */
   width: 90%;
   margin-bottom: 10px;
 }
@@ -615,9 +599,6 @@ par exemple un header pour les mises en page de grande taille ou un footer. */
   transition: transform ease-in 1.5s;
 }
 .menu-epd__txt {
-  /* text-overflow:ellipsis; only works when the following are true:
-     The element's width must be constrained in px (pixels). Width in % (percentage) won't work.
-     The element must have overflow:hidden and white-space:nowrap set. */
   width: 80%;
   margin-bottom: 10px;
   transition-duration: 1s;
