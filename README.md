@@ -23,4 +23,5 @@ Version 02 : SM20221227 - animations added and corrections
 Version 03 : Version before SM20230103 meeting
 Version 04 : Before SM20230103 meeting, Update img and W3C infos corrections
 Version 05 : Before SM20230103 meeting, Error 404 with footer nav - dot slash
+Version 06 : Before SM20230103 meeting, Error 404 with footer nav - Min Maj
 
