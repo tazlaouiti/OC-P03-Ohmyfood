@@ -15,7 +15,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&family=Shrikhand&display=swap"
             rel="stylesheet">
 
-      <title>OhMyFood | Acceuil</title>
+      <title>OhMyFood | Accueil</title>
 </head>
 
 <body>
@@ -30,9 +30,14 @@
                               alt="Logo OhMyFood" src="./public/images/logo/ohmyfood.png"></a>
             </div>
             <div class="header__localisation">
-                  <div class="localisation__icon"><i class="fas fa-map-marker-alt"></i></div>
-                  <div class="localisation__text">
-                        <p>Paris, Belleville</p>
+                  <div class="localisation__icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="localisation__input">
+                        <form method="post" action="traitement.php">
+                              <input class="localisation__text" type="text" name="search_location"
+                                    placeholder="Paris, Belleville">
+                        </form>
                   </div>
             </div>
             <div class="header__box">
@@ -75,7 +80,9 @@
             </section> <!-- id="section__fonctionnement" -->
             <section id="section__restaurants">
                   <div class="restaurants">
-                        <h2>Restaurants</h2>
+                        <div class="restaurants__title">
+                              <h2>Restaurants</h2>
+                        </div>
                         <div class="cards">
                               <a href="Restaurant_La_palette_du_gout.html">
                                     <div class="cards__new">
@@ -117,7 +124,7 @@
                                                 <i class="fa-regular fa-heart icon__color--black"></i>
                                           </div>
                                           <div class="icon__favoris--hover">
-                                                <i class="fa-solid fa-heart icon__color--primary"></i>
+                                                <i class="fa-solid fa-heart"></i>
                                           </div>
                                     </div>
                               </a>
@@ -140,7 +147,7 @@
                                                 <i class="fa-regular fa-heart icon__color--black"></i>
                                           </div>
                                           <div class="icon__favoris--hover">
-                                                <i class="fa-solid fa-heart icon__color--primary"></i>
+                                                <i class="fa-solid fa-heart"></i>
                                           </div>
                                     </div>
                               </a>
@@ -163,7 +170,7 @@
                                                 <i class="fa-regular fa-heart icon__color--black"></i>
                                           </div>
                                           <div class="icon__favoris--hover">
-                                                <i class="fa-solid fa-heart icon__color--primary"></i>
+                                                <i class="fa-solid fa-heart"></i>
                                           </div>
                                     </div>
                               </a>
@@ -190,7 +197,7 @@
                               <a href="./footer_Mentions_legales.html">Mentions légales</a>
                         </li>
                         <li>
-                              <a href="./footer_contact.html">Contact</a>
+                              <a href="mailto:myemail@openclassrooms.com">Contact</a>
                         </li>
                   </ul>
             </div>
